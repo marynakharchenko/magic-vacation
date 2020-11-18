@@ -1,7 +1,8 @@
 .form {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+
 }
 
 .form__label {
@@ -28,10 +29,27 @@
     pointer-events: auto;
   }
 }
+@keyframes formFieldShow{
+  0% {
+width: 0;
 
+
+  }
+  100% {
+    width:calc(100% - 21rem) ;
+
+  }
+}
 .form__field {
-  flex: none;
+  align-self: flex-end;
+animation-name:formFieldShow;
+  animation-timing-function: ease-out;
+
+  animation-duration: 1s;
+justify-content: left;
+ flex: none;
   margin-right: 3rem;
+  margin-left: auto ;
   padding: 0 5.6rem;
   height: 6rem;
   width: calc(100% - 21rem);
@@ -79,7 +97,7 @@
 }
 
 .form__button {
-  flex-grow: 1;
+  flex-grow: 0;
 
   @media (orientation: portrait) {
     position: relative;

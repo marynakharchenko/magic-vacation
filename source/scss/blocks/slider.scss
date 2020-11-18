@@ -40,6 +40,9 @@
     .slider__item-text {
       align-self: flex-end;
 
+
+
+
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;
       }
@@ -89,13 +92,34 @@
     font-size: 3rem;
   }
 }
-
+@keyframes fadeInSlider{
+  0% {
+    opacity:0;
+    transform: translateX(30px);
+  }
+  50%{
+    opacity:0.1;
+  }
+  100% {
+    opacity:1;
+    transform: translateX(0px);
+  }
+}
 .slider__item-text {
+
+  animation: fadeInSlider ease-in 1.5s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
   margin-top: 3.6rem;
   margin-bottom: 0;
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+&:first-child{
+  animation-delay: 1s;
+
+}
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;

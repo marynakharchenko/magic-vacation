@@ -235,7 +235,14 @@
       }
     }
   }
-
+@keyframes lineRun {
+  0%{
+   width: 0;
+  }
+  100%{
+    width: 100%;
+  }
+}
   a {
     position: relative;
     display: block;
@@ -246,7 +253,7 @@
       content: "";
       position: absolute;
       bottom: 0;
-      width: 100%;
+      width: 0;
       height: 2px;
       background-color: $c-light;
       display: none;
@@ -268,6 +275,7 @@
     &.active {
       &::after {
         display: block;
+        width: 100%;
       }
     }
 
@@ -276,8 +284,14 @@
       color: $c-purple;
       outline: none;
 
+
       &::after {
+        animation-name:lineRun;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in;
         opacity: 1;
+        width: 100%;
+        display: block;
         background-color: $c-purple;
       }
     }
@@ -301,3 +315,4 @@
     width: 100%;
   }
 }
+

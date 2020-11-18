@@ -1,3 +1,25 @@
+@keyframes socialIconShow {
+  0%{
+    opacity: 0;
+    transform: translateY(15px);
+
+  }
+  100%{
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toggScale {
+0%{
+  width: 100%;
+  height: 100%;
+}
+  100%{
+    width: 112.5%;
+    height: 112.5%;
+  }
+}
 .social-block {
   position: relative;
 
@@ -18,6 +40,7 @@
   color: $c-dark;
   border-radius: 50%;
 
+
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
   }
@@ -27,6 +50,8 @@
   }
 
   &::before {
+    transition-property: width, height;
+    transition-duration: 400ms, 400ms;
     @include center;
     content: "";
     width: 100%;
@@ -45,7 +70,7 @@
   }
 
   &:hover,
-  .social-block--active & {
+  .social-block--active  {
     color: $c-purple;
 
     &::before {
@@ -81,7 +106,9 @@
   }
 }
 
+
 .social-block__list {
+
   @include list-reset;
   position: absolute;
   top: 100%;
@@ -90,8 +117,10 @@
   opacity: 0;
   pointer-events: none;
 
+
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
+
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -139,6 +168,9 @@
 
   .social-block--active & {
     opacity: 1;
+    animation-name: socialIconShow;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
     pointer-events: auto;
   }
 
@@ -157,10 +189,13 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       margin: 0 1.25rem;
     }
+
   }
+
 }
 
 .social-block__link {
+
   position: relative;
   display: block;
   width: 4rem;
@@ -168,6 +203,8 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+
+
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -204,12 +241,18 @@
 
   svg {
     @include center;
+    transition-property: color;
+    transition-duration: 400ms;
   }
 
   &--fb {
+
     svg {
+
       width: 0.8rem;
       height: 1.7rem;
+
+
 
       @media (min-width: $stop-scaling) {
         width: 8px;
@@ -219,6 +262,7 @@
   }
 
   &--insta {
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +275,7 @@
   }
 
   &--vk {
+
     svg {
       width: 1.7rem;
       height: 1rem;
