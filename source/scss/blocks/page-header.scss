@@ -26,51 +26,73 @@
   justify-content: space-between;
 }
 
-.page-header__logo {
-  @include hover;
-  position: relative;
-  flex: none;
-  top: -0.5rem;
-  display: block;
-  padding: 1rem 0;
-  width: 10rem;
-  color: $c-light;
-
-  @media (min-width: $stop-scaling) {
-    top: -5px;
-    padding: 10px 0;
-    width: 113px;
+@keyframes logoShow{
+  0% {
+    transform: translateX(-40px);
+    opacity: 0;
   }
 
-  @media (max-width: $tablet) and (orientation: portrait) {
-    top: 0;
-    padding: 0.5rem 0;
-    width: 6.8rem;
-    z-index: 1;
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
 
-    .page-header--menu-opened & {
-      color: $c-dark;
-    }
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
-    top: 0;
-    padding: 0.5rem 0;
-    width: 6.8rem;
-    z-index: 1;
-
-    .page-header--menu-opened & {
-      color: $c-dark;
-    }
-  }
-
-  svg {
-    display: block;
-    width: 100%;
-    height: auto;
   }
 }
+.ready {
+  .page-header__logo {
 
+    animation-name: logoShow;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0.91, 0.24, 1);
+    @include hover;
+
+    position: relative;
+    //left:-40px;
+    opacity: 0;
+    flex: none;
+    top: -0.5rem;
+    display: block;
+    padding: 1rem 0;
+    width: 10rem;
+    color: $c-light;
+
+    @media (min-width: $stop-scaling) {
+      top: -5px;
+      padding: 10px 0;
+      width: 113px;
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      top: 0;
+      padding: 0.5rem 0;
+      width: 6.8rem;
+      z-index: 1;
+
+      .page-header--menu-opened & {
+        color: $c-dark;
+      }
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      top: 0;
+      padding: 0.5rem 0;
+      width: 6.8rem;
+      z-index: 1;
+
+      .page-header--menu-opened & {
+        color: $c-dark;
+      }
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
 .page-header__toggler {
   @include btn-reset;
   position: relative;
@@ -126,11 +148,25 @@
     }
   }
 }
+@keyframes menuShow{
+  0% {
+    opacity: 0;
+  }
 
+  100% {
+    opacity: 1;
+  }
+}
+.ready {
 .page-header__nav {
   display: flex;
+ animation-name: menuShow;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+  animation-timing-function: ease-out;
   align-items: center;
-
+opacity: 0;
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
     top: 0;
@@ -235,6 +271,7 @@
       }
     }
   }
+}
 @keyframes lineRun {
   0%{
    width: 0;

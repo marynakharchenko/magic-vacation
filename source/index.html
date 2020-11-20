@@ -9,7 +9,11 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('ready');
+    });
+  </script>
   <header class="page-header js-header">
     <div class="page-header__wrapper">
       <a href="#" class="page-header__logo" aria-label="Перейти на страницу FJORD.Inc">
@@ -28,7 +32,7 @@
               <a class="js-menu-link" href="#story" data-href="story">история</a>
             </li>
             <li>
-              <a class="js-menu-link" href="#prizes" data-href="prizes">призы</a>
+              <a class="js-menu-link" href="#prizes" data-href="prizes" id="prizes">призы</a>
             </li>
             <li>
               <a class="js-menu-link" href="#rules" data-href="rules">правила</a>
@@ -495,7 +499,7 @@
         </div>
       </div>
     </section>
-
+<div class="background-fill"></div>
   </main>
 
 </body>

@@ -1,3 +1,15 @@
+@keyframes footerShow{
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 .screen {
   position: relative;
   display: flex;
@@ -37,39 +49,45 @@
   right: 0;
   z-index: 1;
 }
+.ready {
+  .screen__footer {
+    opacity: 0;
+    animation-name: footerShow;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: $c-dark;
+    background-color: $c-light;
+    z-index: 1;
 
-.screen__footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: $c-dark;
-  background-color: $c-light;
-  z-index: 1;
+    @media (max-width: $tablet) and (orientation: portrait) {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0 3.6rem 0 0;
 
-  @media (max-width: $tablet) and (orientation: portrait) {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
-
-    &.screen__footer--full {
-      width: 100%;
-      height: 18rem;
+      &.screen__footer--full {
+        width: 100%;
+        height: 18rem;
+      }
     }
-  }
 
-  @media (max-width: $mobile) and (orientation: landscape) {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
+    @media (max-width: $mobile) and (orientation: landscape) {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0 3.6rem 0 0;
 
-    &.screen__footer--full {
-      width: 100%;
-      height: 16rem;
+      &.screen__footer--full {
+        width: 100%;
+        height: 16rem;
+      }
     }
   }
 }
-
 .screen__footer-wrapper {
   @include container;
 
@@ -91,6 +109,7 @@
 }
 
 .screen__footer-enlarge {
+
   @include btn-reset;
   position: absolute;
   bottom: 0;
@@ -200,6 +219,7 @@
 }
 
 .screen__footer-note {
+
   padding: 0.8rem 0;
   text-transform: uppercase;
   text-align: center;
@@ -354,3 +374,28 @@
 .screen--rules {
   background-color: $c-dark;
 }
+@keyframes backgroundShow {
+  0%{
+    height: 0;
+  }
+  100%{
+    height: 100%;
+  }
+}
+
+.background-fill{
+  position: fixed;
+  height: 0px;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: $c-dark;
+  .animation-show{
+    animation-name: backgroundShow;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+
+}
+// #5f458c
